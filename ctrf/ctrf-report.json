@@ -10,13 +10,13 @@
       "pending": 0,
       "skipped": 0,
       "other": 0,
-      "start": 1779448008629,
-      "stop": 1779448010355
+      "start": 1779448406403,
+      "stop": 1779448408084
     },
     "tests": [
       {
         "name": "[0] sanity check",
-        "duration": 62,
+        "duration": 64,
         "status": "passed",
         "rawStatus": "passed",
         "type": "unit",
@@ -27,7 +27,7 @@
       },
       {
         "name": "server.js [GET] /api/accounts [1] can get the correct number of accounts",
-        "duration": 41,
+        "duration": 42,
         "status": "failed",
         "message": "Error: expect(received).toHaveLength(expected)\n\nMatcher error: received value must have a length property whose value must be a number\n\nReceived has type:  object\nReceived has value: {}\n",
         "trace": "at Object.toHaveLength (C:\\Users\\apo_k\\OneDrive\\Masaüstü\\Workintech\\Projects\\NodeJS\\fsweb-s14g1-node-db-project-1\\codegrade_mvp.test.js:25:24)\nat processTicksAndRejections (node:internal/process/task_queues:104:5)\n\n[object Object]",
@@ -53,7 +53,7 @@
       },
       {
         "name": "server.js [GET] /api/accounts/:id [3] can get the correct account",
-        "duration": 34,
+        "duration": 33,
         "status": "failed",
         "message": "Error: expect(received).toMatchObject(expected)\n\n- Expected  - 4\n+ Received  + 1\n\n- Object {\n-   \"budget\": 4000,\n-   \"name\": \"account-01\",\n- }\n+ Object {}\n",
         "trace": "at Object.toMatchObject (C:\\Users\\apo_k\\OneDrive\\Masaüstü\\Workintech\\Projects\\NodeJS\\fsweb-s14g1-node-db-project-1\\codegrade_mvp.test.js:36:24)\nat processTicksAndRejections (node:internal/process/task_queues:104:5)\n\n[object Object]",
@@ -66,7 +66,7 @@
       },
       {
         "name": "server.js [GET] /api/accounts/:id [4] responds with a 404 if the id does not exist",
-        "duration": 31,
+        "duration": 30,
         "status": "passed",
         "rawStatus": "passed",
         "type": "unit",
@@ -77,7 +77,7 @@
       },
       {
         "name": "server.js [GET] /api/accounts/:id [5] responds with \"account not found\" if the id does not exist",
-        "duration": 31,
+        "duration": 33,
         "status": "failed",
         "message": "Error: expect(received).toMatch(expected)\n\nMatcher error: received value must be a string\n\nReceived has value: undefined\n",
         "trace": "at Object.toMatch (C:\\Users\\apo_k\\OneDrive\\Masaüstü\\Workintech\\Projects\\NodeJS\\fsweb-s14g1-node-db-project-1\\codegrade_mvp.test.js:46:32)\nat processTicksAndRejections (node:internal/process/task_queues:104:5)\n\n[object Object]",
@@ -103,7 +103,7 @@
       },
       {
         "name": "server.js [POST] /api/accounts [7] responds with a 201 and the newly created account",
-        "duration": 32,
+        "duration": 30,
         "status": "failed",
         "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 201\nReceived: 404\n",
         "trace": "at Object.toBe (C:\\Users\\apo_k\\OneDrive\\Masaüstü\\Workintech\\Projects\\NodeJS\\fsweb-s14g1-node-db-project-1\\codegrade_mvp.test.js:58:26)\nat processTicksAndRejections (node:internal/process/task_queues:104:5)\n\n[object Object]",
@@ -116,7 +116,7 @@
       },
       {
         "name": "server.js [POST] /api/accounts [8] trims the leading and trailing whitespace in the name of the new account",
-        "duration": 31,
+        "duration": 32,
         "status": "failed",
         "message": "Error: expect(received).toMatchObject(expected)\n\n- Expected  - 4\n+ Received  + 1\n\n- Object {\n-   \"budget\": 1000,\n-   \"name\": \"foo\",\n- }\n+ Object {}\n",
         "trace": "at Object.toMatchObject (C:\\Users\\apo_k\\OneDrive\\Masaüstü\\Workintech\\Projects\\NodeJS\\fsweb-s14g1-node-db-project-1\\codegrade_mvp.test.js:63:24)\nat processTicksAndRejections (node:internal/process/task_queues:104:5)\n\n[object Object]",
@@ -129,7 +129,7 @@
       },
       {
         "name": "server.js [POST] /api/accounts [9] responds with a 400 and proper error if name or budget are undefined",
-        "duration": 31,
+        "duration": 33,
         "status": "failed",
         "message": "Error: expect(received).toMatch(expected)\n\nMatcher error: received value must be a string\n\nReceived has value: undefined\n",
         "trace": "at Object.toMatch (C:\\Users\\apo_k\\OneDrive\\Masaüstü\\Workintech\\Projects\\NodeJS\\fsweb-s14g1-node-db-project-1\\codegrade_mvp.test.js:71:32)\nat processTicksAndRejections (node:internal/process/task_queues:104:5)\n\n[object Object]",
@@ -142,7 +142,7 @@
       },
       {
         "name": "server.js [POST] /api/accounts [10] responds with a 400 and proper error if name is too short or too long after trimming it",
-        "duration": 32,
+        "duration": 31,
         "status": "failed",
         "message": "Error: expect(received).toMatch(expected)\n\nMatcher error: received value must be a string\n\nReceived has value: undefined\n",
         "trace": "at Object.toMatch (C:\\Users\\apo_k\\OneDrive\\Masaüstü\\Workintech\\Projects\\NodeJS\\fsweb-s14g1-node-db-project-1\\codegrade_mvp.test.js:85:32)\nat processTicksAndRejections (node:internal/process/task_queues:104:5)\n\n[object Object]",
@@ -155,7 +155,7 @@
       },
       {
         "name": "server.js [POST] /api/accounts [11] responds with a 400 and proper error if budget cannot be coerced into a number",
-        "duration": 32,
+        "duration": 30,
         "status": "failed",
         "message": "Error: expect(received).toMatch(expected)\n\nMatcher error: received value must be a string\n\nReceived has value: undefined\n",
         "trace": "at Object.toMatch (C:\\Users\\apo_k\\OneDrive\\Masaüstü\\Workintech\\Projects\\NodeJS\\fsweb-s14g1-node-db-project-1\\codegrade_mvp.test.js:98:32)\nat processTicksAndRejections (node:internal/process/task_queues:104:5)\n\n[object Object]",
@@ -168,7 +168,7 @@
       },
       {
         "name": "server.js [POST] /api/accounts [12] responds with a 400 and proper error if budget is negative or too big",
-        "duration": 31,
+        "duration": 32,
         "status": "failed",
         "message": "Error: expect(received).toMatch(expected)\n\nMatcher error: received value must be a string\n\nReceived has value: undefined\n",
         "trace": "at Object.toMatch (C:\\Users\\apo_k\\OneDrive\\Masaüstü\\Workintech\\Projects\\NodeJS\\fsweb-s14g1-node-db-project-1\\codegrade_mvp.test.js:108:32)\nat processTicksAndRejections (node:internal/process/task_queues:104:5)\n\n[object Object]",
@@ -207,7 +207,7 @@
       },
       {
         "name": "server.js [PUT] /api/accounts/:id [15] responds with a 200 and the newly updated account",
-        "duration": 31,
+        "duration": 32,
         "status": "failed",
         "message": "Error: expect(received).toBe(expected) // Object.is equality\n\nExpected: 200\nReceived: 404\n",
         "trace": "at Object.toBe (C:\\Users\\apo_k\\OneDrive\\Masaüstü\\Workintech\\Projects\\NodeJS\\fsweb-s14g1-node-db-project-1\\codegrade_mvp.test.js:128:26)\nat processTicksAndRejections (node:internal/process/task_queues:104:5)\n\n[object Object]",
@@ -231,7 +231,7 @@
       },
       {
         "name": "server.js [PUT] /api/accounts/:id [17] responds with a 400 and proper error if name or budget are undefined",
-        "duration": 30,
+        "duration": 31,
         "status": "failed",
         "message": "Error: expect(received).toMatch(expected)\n\nMatcher error: received value must be a string\n\nReceived has value: undefined\n",
         "trace": "at Object.toMatch (C:\\Users\\apo_k\\OneDrive\\Masaüstü\\Workintech\\Projects\\NodeJS\\fsweb-s14g1-node-db-project-1\\codegrade_mvp.test.js:141:32)\nat processTicksAndRejections (node:internal/process/task_queues:104:5)\n\n[object Object]",
@@ -257,7 +257,7 @@
       },
       {
         "name": "server.js [PUT] /api/accounts/:id [19] responds with a 400 and proper error if budget cannot be coerced into a number",
-        "duration": 35,
+        "duration": 31,
         "status": "failed",
         "message": "Error: expect(received).toMatch(expected)\n\nMatcher error: received value must be a string\n\nReceived has value: undefined\n",
         "trace": "at Object.toMatch (C:\\Users\\apo_k\\OneDrive\\Masaüstü\\Workintech\\Projects\\NodeJS\\fsweb-s14g1-node-db-project-1\\codegrade_mvp.test.js:168:32)\nat processTicksAndRejections (node:internal/process/task_queues:104:5)\n\n[object Object]",
@@ -270,7 +270,7 @@
       },
       {
         "name": "server.js [PUT] /api/accounts/:id [20] responds with a 400 and proper error if budget is negative or too big",
-        "duration": 32,
+        "duration": 31,
         "status": "failed",
         "message": "Error: expect(received).toMatch(expected)\n\nMatcher error: received value must be a string\n\nReceived has value: undefined\n",
         "trace": "at Object.toMatch (C:\\Users\\apo_k\\OneDrive\\Masaüstü\\Workintech\\Projects\\NodeJS\\fsweb-s14g1-node-db-project-1\\codegrade_mvp.test.js:178:32)\nat processTicksAndRejections (node:internal/process/task_queues:104:5)\n\n[object Object]",
@@ -283,7 +283,7 @@
       },
       {
         "name": "server.js [DELETE] /api/accounts/:id [21] can delete the correct account",
-        "duration": 30,
+        "duration": 32,
         "status": "failed",
         "message": "Error: expect(received).not.toBeDefined()\n\nReceived: {\"budget\": 4000, \"id\": 1, \"name\": \"account-01\"}\n",
         "trace": "at Object.toBeDefined (C:\\Users\\apo_k\\OneDrive\\Masaüstü\\Workintech\\Projects\\NodeJS\\fsweb-s14g1-node-db-project-1\\codegrade_mvp.test.js:189:27)\n\n[object Object]",
@@ -296,7 +296,7 @@
       },
       {
         "name": "server.js [DELETE] /api/accounts/:id [22] responds with a 404 if the id does not exist",
-        "duration": 34,
+        "duration": 31,
         "status": "passed",
         "rawStatus": "passed",
         "type": "unit",
@@ -307,7 +307,7 @@
       },
       {
         "name": "server.js [DELETE] /api/accounts/:id [23] responds with \"account not found\" if the id does not exist",
-        "duration": 31,
+        "duration": 32,
         "status": "failed",
         "message": "Error: expect(received).toMatch(expected)\n\nMatcher error: received value must be a string\n\nReceived has value: undefined\n",
         "trace": "at Object.toMatch (C:\\Users\\apo_k\\OneDrive\\Masaüstü\\Workintech\\Projects\\NodeJS\\fsweb-s14g1-node-db-project-1\\codegrade_mvp.test.js:197:32)\nat processTicksAndRejections (node:internal/process/task_queues:104:5)\n\n[object Object]",
