@@ -7,36 +7,26 @@ const getAll = () => {
 
 const getById = (id) => {
   // KODLAR BURAYA
-  return db("accounts").where({ id }).first();
+  return db("accounts").where("id", id).first();
 };
 
-const create = (account) => {
+const create = async (account) => {
   // KODLAR BURAYA
-  return db("accounts")
-    .insert(account)
-    .then((ids) => {
-      return getById(ids[0]);
-    });
+  const [id] = await db("accounts").insert(account);
+  return getById(id);
 };
 
-const updateById = (id, account) => {
+const updateById = async (id, account) => {
   // KODLAR BURAYA
-  return db("accounts")
-    .where({ id })
-    .update(account)
-    .then(() => {
-      return getById(id);
-    });
+  await db("accounts").where("id", id).update(account);
+  return getById(id);
 };
 
-const deleteById = (id) => {
+const deleteById = async (id) => {
   // KODLAR BURAYA
-  return getById(id).then((account) => {
-    return db("accounts")
-      .where("id", id)
-      .del()
-      .then(() => account);
-  });
+  const account = await getById(id);
+  await db("accounts").where("id", id).del();
+  return account;
 };
 
 module.exports = {

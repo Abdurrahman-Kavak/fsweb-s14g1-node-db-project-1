@@ -12,12 +12,13 @@ const {
   checkAccountId,
 } = require("./accounts-middleware");
 
-router.get("/", (req, res, next) => {
-  getAll()
-    .then((acc) => {
-      res.status(200).json(acc || []);
-    })
-    .catch(next);
+router.get("/", async (req, res, next) => {
+  try {
+    const accounts = await getAll();
+    res.status(200).json(accounts || []);
+  } catch (error) {
+    next(error);
+  }
 });
 
 router.get("/:id", checkAccountId, (req, res, next) => {
@@ -28,29 +29,37 @@ router.post(
   "/",
   checkAccountPayload,
   checkAccountNameUnique,
-  (req, res, next) => {
-    create(req.body)
-      .then((acc) => {
-        res.status(201).json(acc);
-      })
-      .catch(next);
+  async (req, res, next) => {
+    try {
+      const newAccount = await create(req.body);
+      res.status(201).json(newAccount);
+    } catch (error) {
+      next(error);
+    }
   },
 );
 
-router.put("/:id", checkAccountId, checkAccountPayload, (req, res, next) => {
-  updateById(req.params.id, req.body)
-    .then((acc) => {
-      res.status(200).json(acc);
-    })
-    .catch(next);
-});
+router.put(
+  "/:id",
+  checkAccountId,
+  checkAccountPayload,
+  async (req, res, next) => {
+    try {
+      const updatedAccount = await updateById(req.params.id, req.body);
+      res.status(200).json(updatedAccount);
+    } catch (error) {
+      next(error);
+    }
+  },
+);
 
-router.delete("/:id", checkAccountId, (req, res, next) => {
-  deleteById(req.params.id)
-    .then((acc) => {
-      res.status(200).json(acc);
-    })
-    .catch(next);
+router.delete("/:id", checkAccountId, async (req, res, next) => {
+  try {
+    const deletedAccount = await deleteById(req.params.id);
+    res.status(200).json(deletedAccount);
+  } catch (error) {
+    next(error);
+  }
 });
 
 router.use((err, req, res, next) => {
