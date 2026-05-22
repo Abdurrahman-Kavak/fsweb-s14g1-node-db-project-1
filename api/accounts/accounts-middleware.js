@@ -38,6 +38,7 @@ exports.checkAccountNameUnique = async (req, res, next) => {
     if (existing) {
       return res.status(400).json({ message: "that name is taken" });
     }
+    next();
   } catch (error) {
     next(error);
   }
@@ -47,7 +48,7 @@ exports.checkAccountId = async (req, res, next) => {
   try {
     const account = await Accounts.getById(req.params.id);
     if (!account) {
-      return res.status(400).json({ message: "account not found" });
+      return res.status(404).json({ message: "account not found" });
     }
     req.account = account;
     next();
